@@ -1,0 +1,38 @@
+{
+  "name": "couk.minuse.mc",
+  "displayName": "monkys-compendium",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova": "^12.0.0",
+    "cordova-android": "^14.0.1",
+    "cordova-plugin-clipboard": "^1.0.0",
+    "cordova-plugin-device": "^3.0.0",
+    "cordova-plugin-device-motion": "^2.0.1",
+    "cordova-plugin-shake": "^0.7.0",
+    "cordova-plugin-splashscreen": "^6.0.1",
+    "cordova-plugin-x-socialsharing": "^6.0.4",
+    "es6-promise-plugin": "^4.2.2"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-clipboard": {},
+      "cordova-plugin-shake": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-device": {}
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="couk.minuse.mc" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>monkys-compendium</name>
+    <description>
+        app containing jokes, personal lists, morse code and the 10 game challenge!
+    </description>
+    <author email="stevemonk3@hotmail.com" href="https://www.harryramma.co.uk">
+        Stephen Monk
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+
+
+    <platform name="android">
+        <allow-intent href="market:*" />
+
+        <icon src="res/icons/android/icon-36-ldpi.png" density="ldpi" />
+        <icon src="res/icons/android/icon-48-mdpi.png" density="mdpi" />
+        <icon src="res/icons/android/icon-72-hdpi.png" density="hdpi" />
+        <icon src="res/icons/android/icon-96-xhdpi.png" density="xhdpi" />
+        <icon src="res/icons/android/icon-96-xhdpi.png" density="xxhdpi" />
+        <icon src="res/icons/android/icon-96-xhdpi.png" density="xxxhdpi" />
+
+    <!--    <splash density="land-hdpi" src="res/screen/android/screen-hdpi-landscape.png" />
+        <splash density="land-ldpi" src="res/screen/android/screen-ldpi-landscape.png" />
+        <splash density="land-mdpi" src="res/screen/android/screen-mdpi-landscape.png" />
+        <splash density="land-xhdpi" src="res/screen/android/screen-xhdpi-landscape.png" />
+        <splash density="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />
+        <splash density="port-ldpi" src="res/screen/android/screen-ldpi-portrait.png" />
+        <splash density="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" />
+        <splash density="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />"-->
+
+<preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/screen/android/MCsplash.png"/>
+<preference name="AndroidWindowSplashScreenBackground" value="#232323" />
+
+      <preference name="KeyboardResize" value="true" />
+      <preference name="BackgroundColor" value="0xff000000"/>
+    </platform>
+    
+</widget>
