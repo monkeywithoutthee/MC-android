@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv='Content-Security-Policy' content="script-src 'self'; style-src 'self';">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta http-equiv='content-type' content='text/html; charset=UTF-8' />
+
+      <!--  <link rel='stylesheet' href='css/WishStyle/onsen-css-components.css'>-->
+
+        <link rel="stylesheet" href="onsenui/css/onsenui.css">
+        <link rel="stylesheet" href="onsenui/css/onsen-css-components.css">
+        <link href="onsenui/material-icons/iconfont/material-icons.css" rel="stylesheet">
+        <script src="js/onsenuiramma.js"></script>
+        <!--<script src="css/onsenui.js"></script>-->
+        <link rel='stylesheet' type='text/css' href='css/index.css'>
+        <title>Monkys Compendium - lists, jokes and morse and 10 game challenge</title>
+        <link rel="shortcut icon" href="#">
+        <script src="js/shake.js"></script>
+    </head>
+    <body>
+  <ons-navigator swipeable id="myNavigator" page="home.html"></ons-navigator>
+
+
+  <ons-toolbar class="elShadow">
+      <div class='center'>
+          monkys compendium
+      </div>
+  </ons-toolbar>
+
+
+  <ons-modal direction='up' animation='fade'>
+    <div class="textCenter" id='Modal'>
+            <ons-icon icon='md-spinner' size='28px' spin></ons-icon><div id='modalMessage' class="modalMessage">thinking .--. . .- -.-. .</div>
+  </ons-modal>
+
+<!--  <ons-toast id="mctoast" animation="fall">-->
+
+
+    <template id="home.html" swipeable>
+          <ons-page id='home'>
+            <ons-pull-hook id="pull-hook-home">this is monkys compendium</ons-pull-hook>
+                  <ons-card class="nohanded">
+                    <div class="homeiBlock"><div class="homeHeader"></div></div>
+                    <div class="homeButtons">
+                    <button class="mlists homePageIcons canHold"><span class="mlists material-icons hpIcon canHold">list_alt</span></button>
+                    <button class="mjokes homePageIcons canHold"><span class="mjokes material-icons hpIcon canHold">tag_faces</span></button>
+                    <button class="msquare homePageIcons canHold"><span class="msquare material-icons hpIcon canHold">casino</span></button>
+                    <button class="mmorse homePageIcons canHold"><span class="mmorse material-icons hpIcon canHold">cell_tower</span></button>
+                    <button class="mquotes homePageIcons canHold"><span class="mquotes material-icons hpIcon canHold">format_quote</span></button>
+                    <button class="minfo homePageIcons canHold"><span class="minfo material-icons hpIcon canHold">info</span></button>
+                  </div>
+                  </ons-card>
+                          <ons-bottom-toolbar class="fabToolbar elShadow">
+                            <ons-fab position="bottom center" class="usrsettingH" ripple  modifier="mini modifier2">
+                                <span class='material-icons usrsetting'>settings</span>
+                            </ons-fab>
+                          </ons-bottom-toolbar>
+
+                          <ons-dialog id="usrSet" cancelable>
+                            <div class="usrSet">
+                              <div class="setshead">user settiings</div>
+                              <div class="setscontent">
+                                  <div class="setshanded">right handed</div>
+                                  <div class="setshandedswitch"><ons-switch class="usrsethandswitch" checked></ons-switch></div>
+                                  <div class="setsshake">shake off</div>
+                                  <div class="setsshakeswitch"><ons-switch class="usrsetshakeswitch"></ons-switch></div>
+                                  <div class="reinlistsH"><ons-button class="reinlists">reinstall Initial Lists</ons-button></div>
+                                  <div class="demoListButH"><ons-button class="demoListBut">create big demo list</ons-button></div>
+                              </div>
+                            </div>
+                          </ons-dialog>
+          </ons-page>
+    </template>
+
+
+      <template id="square.html" swipeable>
+            <ons-page id='square'>
+              <ons-pull-hook id="pull-hook-square">start a new game</ons-pull-hook>
+                <ons-card class="nohanded">
+                <div class="hgameInfo"><div id='divGameInfo' ></div></div>
+                <div class='row textCenter'>
+                    <div class='divPlayer SQ1 hdivPlayer dotHatch'id='div_1'>X</div>
+                    <div class='divPlayer hdivCenter' id='div_X'>
+                        <ons-button class='sclassOpt'>OPT</ons-button>
+                    </div>
+                    <div class='divPlayer SQ0 hdivPlayer dotHatch' id='div_0'>O</div>
+                </div>
+                <div id='divSquares' class="divSquares"></div>
+                  <div class="textCenter">
+                    <button id='refreshSquares' class='button--outline refreshSquares'>Refresh</button>
+                  </div>
+                <div class="textCenter">
+                    <button class='gameCall button--outline'>
+                        <div class="threepad gameCallIns tengameflashbut">&nbsp;THE UNBEATEN CHALLENGE&nbsp;</div>
+                        <div class='tenGameDetail'>boooooom</div>
+                    </button>
+                  <div>
+                  </div>
+                </div>
+                <div class="textCenter"><div class='challangeTimer'></div></div>
+
+                <div class="replayHolder">
+                  <ons-button class='replayBack hreplayRight' disabled>
+                    <span class='material-icons replayBackI'>arrow_back_ios</span>
+                  </ons-button>
+                  <div class="hreplayCenter">
+                    <div class='matchReplayX'>0</div>
+                  </div>
+                  <ons-button class='replayForw hreplayLeft' disabled>
+                    &nbsp;<span class='material-icons replayForwI'>arrow_forward_ios</span>
+                  </ons-button>
+                </div>
+
+
+
+
+                <!--<ons-progress-bar indeterminate></ons-progress-bar>-->
+                 <ons-dialog id='squareCard' cancelable>
+                   <div class="squareCardHolder">
+                   <div class='squareCard'>
+                     <div id='divSquareCard' class='squareCardContent elShadow'>
+                            <ons-button class='playerButts changeSQOption_1'>X</ons-button>
+                            <ons-button class='playerButts changeSQOption_0'>0</ons-button>
+                     </div>
+                     <div id='divPlayerUpdate' class='squareCardContent'>
+                            <ons-button class='playerButts textLeft resetbut'>RESET PLAYERS</ons-button>
+                     </div>
+                     <div id='div10Game' class='squareCardContent'>
+                        <div class='squarePopContent'>The idea is to go unbeaten for 10 games. If you succeed you will have the option of being added to the leaderboard. Leader will have won most games in the smallest amount of time</div>
+                          <ons-button  class='playerButts textLeft tengameflashbut'>START 10 GAME CHALLENGE</ons-button>
+                     </div>
+                     <div id='divGiveUp' class='squareCardContent'>
+                       <div class='squarePopContent'>Are you sure you want to give up this game challenge? Too much for ya?</div>
+                            <ons-button class="textLeft">YES, GIVE UP</ons-button>
+                     </div>
+                  </div>
+                </div>
+
+                 </ons-dialog>
+
+               </ons-card>
+               <div id='divSquareMessage' class='SquareMessage'></div>
+                 <ons-bottom-toolbar class="squaresToolbar elShadow">
+                   <button class='leaderCall button--outline'>
+                       LEADERBOARD
+                   </button>
+                 <ons-fab position="bottom right" class="goHome fabBhanded defright" modifier="mini modifier2">
+                   <ons-icon icon="md-home" class="goHome"></ons-icon>
+                 </ons-fab>
+               </ons-bottom-toolbar>
+            </ons-page>
+          </template>
+
+
+          <template id="lists.html" swipeable>
+                <ons-page id='lists'>
+                  <ons-pull-hook id="pull-hook-lists">move to next set of records</ons-pull-hook>
+                        <ons-card>
+                        <div class="listTitle"><div class="listViewAll">
+                          <span class="material-icons showHiLi">check</span>
+                          <span class="material-icons showSearchFilter">search</span>
+                          <span class="material-icons listSettings">settings</span>
+                          <span class='material-icons showAll listAll'>visibility</span></div>
+                        <div class="canedit_name canedit"></div>
+                        <div class="canedit">notes:</div>
+                        <div class="canedit_notes canedit"></div>
+                      </div>
+                        <div id="divPaging" class="paging noPull"></div>
+                        <ons-list id="mainList" class="mainList noPull">
+                        </ons-list>
+                        </ons-card>
+                      <ons-popover direction="down" id="popover" cancelable><div class="popoverDiv"></div></ons-popover>
+                    <ons-dialog id="listEntry" cancelable>
+                      <div class="listEntryName">
+                        <div class="newListEntry"></div>
+                          <div>NAME:</div>
+                            <div><ons-input class="titem" float></ons-input></div>
+                          <div>NOTES:</div>
+                            <div><ons-input class="tnotes" modifier="underbar" float></ons-input></div>
+                          <div class="listEntryButHolder">
+                            <ons-button class="newButt">ADD</ons-button>
+                          </div>
+                      </div>
+                    </ons-dialog>
+                    <ons-dialog id="listLists" cancelable>
+                      <div class="divList">
+                        <div class="divListName">
+                          <div class="newListList">will add a new list!</div>
+                          <p>
+                            <ons-input class="nlistName" modifier="underbar" placeholder="List Name" float></ons-input>
+                          </p>
+                          <p>
+                            <ons-input class="nListNotes" modifier="underbar" placeholder="List Notes" float></ons-input>
+                          </p>
+                          <p class="pListBut">
+                            <ons-button outline class="listButton">Add New List</ons-button>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="listOfLists">your list of lists</div>
+                      <div class="ListListsB">&nbsp</div>
+                    </ons-dialog>
+                  <ons-bottom-toolbar class="fabToolbar elShadow">
+                      <ons-fab position="bottom left" class="listLists fabBhanded" ripple modifier="mini modifier2">
+                          <ons-icon icon="md-menu" class="listLists"></ons-icon>
+                      </ons-fab>
+                      <ons-fab position="bottom center" class="showNew" ripple modifier="mini modifier2">
+                          <ons-icon icon="md-plus" class="showNew"></ons-icon>
+                      </ons-fab>
+                      <ons-fab position="bottom right" class="goHome fabBhanded defright" ripple modifier="mini modifier2">
+                          <ons-icon icon="md-home" class="goHome"></ons-icon>
+                      </ons-fab>
+                    </ons-fab>
+                   </ons-bottom-toolbar>
+
+                </ons-page>
+
+              </template>
+
+              <template id="jokes.html" swipeable>
+                  <ons-page id='jokes'>
+                    <ons-pull-hook id="pull-hook-jokes">add/remove from favourites</ons-pull-hook>
+                            <ons-card>
+                                <div id='divJoke' class='squareCardContent'>
+                                  <div class="jokeCard">
+
+                                              <div class="jokeContent noPull">
+                                                <div class="addFavJokes noPull blockhanded"><span class="material-icons addFavJoke noPull">favorite_border</span></div>
+                                              <div class="jokeDisp noPull"></div>
+                                            </div>
+
+                                            <div class="jkCrd1 noPull">
+                                              <ons-search-input class="searchJokeTxt getJokeFrom" placeholder="Search jokes"></ons-search-input><br>
+                                              <ons-button class="searchButt getJokeFrom">fetch joke</ons-button>
+                                            </div>
+
+                                            <div class="jokeButHol noPull">
+
+                                              <ons-button class="playerButts fetchJoke">JOKE LUCKY DIP?</ons-button>
+
+                                              <ons-button class="button newJokeButt newJokeAS">SUBMIT NEW JOKE</ons-button>
+                                            </div>
+                                    </div>
+                                </div>
+                            </ons-card>
+
+                            <ons-dialog id="listFaveJokes" cancelable>
+                              <div class="ListFaveJokes">
+                                  <div class="searchFavLeft">fav jokes list</div>
+                                  <div class="searchFavRight"><ons-search-input class="searchFavJokes" placeholder="search your favourite jokes"></ons-search-input></div>
+                              </div>
+                              <div class="divListFaveJokes">your list of lists</div>
+                              <div class="ListListsB">&nbsp</div>
+                            </ons-dialog>
+                            <ons-bottom-toolbar class="fabToolbar elShadow">
+                              <ons-fab position="bottom right" class="goHome fabBhanded defright" modifier="mini modifier2">
+                                <ons-icon icon="md-home" class="goHome"></ons-icon>
+                              </ons-fab>
+                            </ons-bottom-toolbar>
+
+                </ons-page>
+            </template>
+
+            <template id="info.html" swipeable>
+                <ons-page id='info'>
+                  <div class="nopullhook">&nbsp;</div>
+                          <ons-card>
+                              <div id='divInfo' class='infoCardContent'></div>
+                            <!--  <div id='divinstructions' class='instructionCardContent'></div>-->
+                          </ons-card>
+                          <ons-bottom-toolbar class="fabToolbar elShadow">
+                          <ons-fab position="bottom right" class="goHome fabBhanded defright" modifier="mini modifier2">
+                            <ons-icon icon="md-home" class="goHome"></ons-icon>
+                          </ons-fab>
+                        </ons-bottom-toolbar>
+              </ons-page>
+          </template>
+
+
+          <template id="morse.html" swipeable>
+              <ons-page id='morse'>
+                <ons-pull-hook id="pull-hook-morse">add/remove from favourites</ons-pull-hook>
+                        <ons-card>
+                            <div id='divMorse' class='morseCardContent'>
+                            <div class="morseHolder">
+                              <div class="morseOutputHolder noPull">
+                                  <div class="addFavMorseHolder noPull blockhanded">
+                                    <span class="material-icons addFavMorse noPull">favorite_border</span>
+                                  </div>
+                                <div class="morseOutput copyMorse noPull"></div>
+                              </div>
+                                  <div class="inPut"><textarea class="morseTextInput noPull areahanded arearight" placeholder="type something in!!" value="\n"></textarea>
+                                  <div class='material-icons noPull clearInputText clearhanded clearright'>cancel</div></div>
+                                  <div class="switchHolder noPull"><button class="morseSwitchInput noPull button">text to morse</button></div>
+                                  <div class="playerHolder noPull"><div id="player"></div></div>
+                              </div>
+                            </div>
+                            <div class="quotesheader">some quotes</div>
+                            <div class="quotesContainingHolder"><div class="quotesContaining"></div></div>
+                            <div class="quotesLinkHolder"><button class="quotesLink">get more quotes</button></div>
+                        </ons-card>
+
+                        <ons-dialog id="listFaveMorse" cancelable>
+                          <div class="ListFaveMorse">
+                              <div class="searchFavLeft">fav morse list</div>
+                              <div class="searchFavRight"><ons-search-input class="searchFavMorse" placeholder="search your favourite morse"></ons-search-input></div>
+                          </div>
+                          <div class="divListFaveMorse"></div>
+                          <div class="ListListsB">&nbsp</div>
+                        </ons-dialog>
+                      <ons-bottom-toolbar class="fabToolbar elShadow">
+                        <ons-fab position="bottom right" class="goHome fabBhanded defright" modifier="mini modifier2">
+                          <ons-icon icon="md-home" class="goHome"></ons-icon>
+                        </ons-fab>
+                      </ons-bottom-toolbar>
+            </ons-page>
+        </template>
+
+        <template id="quotes.html" swipeable>
+            <ons-page id='quotes'>
+              <ons-pull-hook id="pull-hook-quotes">add/remove from favourites</ons-pull-hook>
+                      <ons-card>
+
+                          <div class='quotesCardContent noPull elHide copyToParent'></div>
+                          <div class='quotesRS noPull elHide copyToChild'></div>
+                          <div class='quotesSearch copyToChild noPull'>
+                            <ons-search-input class="searchQuoteTxt getQuoteFrom" placeholder="Search quotes"></ons-search-input><ons-button class='quotesbut'>GO</ons-button>
+                            <ons-button class='quotesbut getrandomquotes'>get random quotes</ons-button>
+                          </div>
+                      </ons-card>
+
+                      <ons-dialog id="listFaveQuotes" cancelable>
+                        <div class="ListFaveQuotes">
+                            <div class="searchFavLeft">fav quotes list</div>
+                            <div class="searchFavRight"><ons-search-input class="searchFavQuotes" placeholder="search your favourite quotes"></ons-search-input></div>
+                        </div>
+                        <div class="divListFaveQuotes"></div>
+                        <div class="ListListsB">&nbsp</div>
+                      </ons-dialog>
+
+                      <ons-bottom-toolbar class="fabToolbar elShadow">
+                      <ons-fab position="bottom right" class="goHome fabBhanded defright" modifier="mini modifier2">
+                        <ons-icon icon="md-home" class="goHome"></ons-icon>
+                      </ons-fab>
+                    </ons-bottom-toolbar>
+          </ons-page>
+      </template>
+
+          <template id='action-sheet.html'>
+            <ons-action-sheet id='sheet' cancelable title='10 Game Unbeaten Challenge Leaderboard'>
+              <div class='actionContent'></div>
+            </ons-action-sheet>
+          </template>
+  <!--  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>-->
+        <script src='js/jquery-3-4-1.js'></script>
+        <script type='text/javascript' src='cordova.js'></script>
+        <script type='text/javascript' src='js/index.js'></script>
+        <script type='text/javascript' src='js/jokes.js'></script>
+        <script type='text/javascript' src='js/SquareScript.js'></script>
+        <script type='text/javascript' src='js/lists.js'></script>
+        <script type='text/javascript' src='js/morse.js'></script>
+        <script type='text/javascript' src='js/quotes.js'></script>
+        <script src="js/jscwlibEd.js"></script>
+        <script src='js/JSONs.js'></script>
+        <script src='js/listeners.js'></script>
+    </body>
+</html>
