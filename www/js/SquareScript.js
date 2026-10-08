@@ -901,12 +901,16 @@
     modal.show();
     document.getElementById('modalMessage').innerHTML = modalMessage;
       //  getModalContent(imageName);
-    }
+    };
+
+
+
+
     function closeModal() {
         var modal = document.querySelector('ons-modal');
         //{animationOptions:{duration: 0.6, delay: 0.2, timing: 'ease-out'}}
         modal.hide();
-    }
+    };
     function getModalMessage(messageType){
       //messageType 0=general, 1=winner, 2 = looser, 4=competition mode
     //  messageType = 1;

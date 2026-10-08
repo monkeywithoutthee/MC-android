@@ -500,7 +500,7 @@ const setUpPlayer = (()=>{
         m.setText(texttoPlay);
       };
       m.el.style.width = 'unset';
-        m.el.style.padding = '3px';
+        m.el.style.padding = '10px';
         m.el.style.boxShadow = '1px 1px 20px 0px rgb(0, 0, 0) inset';
         m.el.style.margin = '10px';
         m.el.style.borderStyle = 'solid';

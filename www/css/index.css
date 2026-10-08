@@ -342,6 +342,7 @@ a {
   width:100%;
   border-radius:3px;
   display:inline-block;
+  border-radius: 10%;
 }
 
 .gameCall{
@@ -355,13 +356,14 @@ a {
   padding-right:0;*/
   padding:0;
   height:30px;
+  border-radius: 10%;
 }
 .gameCallIns{
 
 }
 .leaderCall{
   margin-top:10px;
-  border-radius:4px;
+  border-radius:10%;
   cursor:pointer;
 }
 .tenGameDetail{
@@ -628,8 +630,8 @@ a:active {
   border-color: rgba(255,255,255,0.6);
   outline-width: 1px;
   outline-offset: 1px;
-  border-radius: 10px;
-  border-width: 8px;
+  border-radius: 20%;
+  /*border-width: 8px;*/
 }
 .fabHolder{
   max-width:300px !important;
@@ -680,7 +682,7 @@ a:active {
   color: rgba(250,250,250,0.9);
   font-size: larger;
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 2%;
   overflow: auto;
   box-shadow: 1px 1px 30px 0px rgb(0, 0, 0) inset;
   line-height: 22px;
@@ -738,6 +740,7 @@ a:active {
   height:50%;
   display:inline-block;
   min-width:90%;
+  border-radius: 5%;
 }
 .squarePopContent{
   margin-bottom: 10px;
@@ -750,7 +753,7 @@ a:active {
   color: rgba(250,250,250,0.9);
   font-size: large;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10%;
   overflow: auto;
   box-shadow: 1px 1px 30px 0px rgb(0, 0, 0) inset;
   line-height: 1.5;
@@ -831,8 +834,8 @@ a:active {
   background-color:rgba(44,48,51,0.9);
   display: block;
   padding: 5px;
-  border-top-left-radius:2px;
-  border-top-right-radius:2px;
+  border-top-left-radius:3%;
+  border-top-right-radius:3%;
 }
 .listViewAll{
   float: right;
@@ -943,7 +946,7 @@ a:active {
   padding-bottom:10px;
   padding-left:10px;
   padding-right:10px;
-  border-radius: 5px;
+  border-radius: 10%;
   border-style: inset;
   border-width: 1px;
   min-height: 66px;
@@ -977,6 +980,7 @@ a:active {
   text-align:center;
   margin-top: 10px;
   margin-bottom: 20px;
+  border-radius:10%;
 }
 .updateListofListsBut{
   width:100%;
@@ -1008,6 +1012,7 @@ a:active {
     height: 30px;
     padding-bottom: 5px;
     display: block;
+    border-radius:10%;
     /*line-height: 1.4; REMOVE ON ANDROID*/
 }
 .copyToParent{
@@ -1049,6 +1054,7 @@ a:active {
   color: rgba(250,250,250,0.9);
   padding-top: 0;
   padding-bottom: 0;
+  border-radius: 10%;
 }
 .setPageAmount{
   width:20px;
@@ -1074,13 +1080,15 @@ a:active {
   overflow:auto;
   position:relative;
   box-shadow:0px 0px 20px 0px rgba(0,0,0,1) inset;
+  border-bottom-left-radius:10%;
+  border-bottom-right-radius:10%;
 }
 .demoListBut{
   padding: 6px;
     margin-top: 10px;
     border-style: solid;
     border-width: 0.5px;
-    border-radius: 8px;
+    border-radius: 10%;
     display: inline-block;
     width:100%;
 }
@@ -1142,7 +1150,7 @@ a:active {
   display: block;
   border-style: solid;
   border-width: 0.5px;
-  border-radius: 1px;
+  border-radius: 10%;
   margin: 5px;
   height: 20px;
   line-height: 2;
@@ -1188,9 +1196,10 @@ onsen UI overlaysonsen UI overlaysonsen UI overlaysonsen UI overlays .--. . .- -
 .dialog{
   background-color: rgb(28,28,28);
   top: 45%;
-  border-style: ridge;
-  border-width: 5px;
+  border-style: solid;
   border-color: rgba(0,0,0,0.9);
+  border-width: 28px;
+  border-radius: 28px;
 }
 .alert-dialog{
   border-style: solid;
@@ -1240,7 +1249,7 @@ onsen UI overlaysonsen UI overlaysonsen UI overlaysonsen UI overlays .--. . .- -
   height:120%;
 }
 .modal{
-  background-color:rgba(33,33,33,0.95);
+  background-color:rgba(33,33,33,0.9);
 }
 .button{
   background-color: rgba(250,250,250,0.3);
@@ -1327,12 +1336,13 @@ left:unset;
     appearance: none;
     width: auto;
     max-height:300px;
+    border-radius:5%;
 }
 .dialog-mask{
   background-color: rgba(28,28,28,0.8);
 }
 .popover-mask{
-  background-color: rgba(28,28,28,0.5);
+  background-color: rgba(28,28,28,0.9);
 }
 .popOverBut{
   font-size: 30px;
@@ -1376,6 +1386,7 @@ position: absolute;
 }
 .list{
   background-color: #2C3033;
+  border-radius: 3%;
 }
 .list-item__center{
   height:unset;
@@ -1415,8 +1426,10 @@ position: absolute;
   line-height: 28px;
   text-align: left;
   height: 100px;
+  border-radius: 10%;
   /*border-style: ridge;
   border-color: rgba(0,0,0,0.9);*/
+
 }
 .morseTextInput{
   margin-bottom: 10px;
@@ -1439,12 +1452,14 @@ position: absolute;
   height: 100px;
   border-style: inset;
   border-color: black;
+  border-radius: 10%;
 }
 .morseSwitchInput{
   width:100%;
   color: #333333;
   border-radius: 5px;
   border-style: solid;
+  border-radius: 10%;
 }
 .inPut{
   display: inline-block;
@@ -1465,6 +1480,7 @@ position: absolute;
   box-shadow: 1px 1px 10px 0px rgb(0, 0, 0) inset;
   display: inline-block;
   width:80%;
+  border-radius:10%;
 }
 .quotesContainingHolder{
   display:none;
@@ -1596,6 +1612,7 @@ progress[value]::-webkit-progress-bar {
 }
 .textLeft{
   text-align:left;
+  border-radius: 10%;
 }
 .flRight{
   float:right;
@@ -1622,7 +1639,7 @@ progress[value]::-webkit-progress-bar {
 }
 .refreshSquares{
   font-size:20px;
-  border-radius:4px;
+  border-radius:10%;
   height:30px;
 }
 .threepad{
@@ -1665,11 +1682,13 @@ progress[value]::-webkit-progress-bar {
   width:47%;
   text-align:left;
   background-color:rgba(255,111,97,0.3);
+  border-radius: 10%;
 }
 .changeSQOption_0{
   width:47%;
   text-align:right;
   background-color:rgba(42,75,124,0.5);
+  border-radius: 10%;
 }
 .canedit{
   display:block;
@@ -1677,7 +1696,7 @@ progress[value]::-webkit-progress-bar {
 }
 .listEntryName{
   text-align:center;
-  margin-top:2px;
+  margin:10px;
 }
 .listEntryButHolder{
   text-align:center;
@@ -1719,6 +1738,7 @@ progress[value]::-webkit-progress-bar {
 .fetchJoke{
   margin-bottom:10px;
   width:100%;
+  border-radius: 10%;
 }
 .wideandtop{
   width:100%;
@@ -1744,6 +1764,7 @@ progress[value]::-webkit-progress-bar {
   text-align:center;
   margin:5px;
   color:rgba(0,0,0,0.9);
+  border-radius:10%;
 }
 .timerBlock{
   display:inline-block;
@@ -1839,6 +1860,7 @@ progress[value]::-webkit-progress-bar {
   padding-bottom: 5px;
   /*line-height: 1.4; REMOVE ON ANDROID*/
   display: block;
+  border-radius: 10%;
 }
 .getQuoteFrom{
   vertical-align: middle;
@@ -1861,6 +1883,7 @@ progress[value]::-webkit-progress-bar {
   height:100px;
   text-align: left;
   font-size: larger;
+  border-radius:5%;
   /*border-style: ridge;
   border-color: rgb(0, 0, 0);
   border-width: 3px;*/
@@ -1876,12 +1899,12 @@ progress[value]::-webkit-progress-bar {
 .quotesRS{
   background-color: rgba(28,28,28,0.8);
   color: rgba(250,250,250,0.9);
-  border-radius: 5px;
+  border-radius: 5%;
   height: 40%;
   overflow: auto;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.8) inset;
   text-align: left;
-  padding: 10px;
+  padding: 13px;
   margin-bottom: 0;
   font-size: larger;
 }
@@ -2016,6 +2039,7 @@ border-bottom-width: 0.5px;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: linear;
+  border-radius:10%;
   /* linear is enabled default, it’s not necessary to add it make it work but it can make your code more expressive */
 }
 
@@ -2126,9 +2150,10 @@ padding:5px;
   margin-top: 10px;
   border-style: solid;
   border-width: 0.5px;
-  border-radius: 8px;
+  border-radius: 10%;
   display: inline-block;
   width:100%;
+
 }
 
 .nopullhook{
@@ -2152,7 +2177,13 @@ margin-bottom:20px;
 bottom:47px;
 }
 
+.toolbar--material__center:first-child {
+    margin-left: 0;
+}
 
+.toolbar--material__center:last-child {
+    margin-right: 0;
+}
 
 
 

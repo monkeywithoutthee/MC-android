@@ -4,9 +4,9 @@
 		var oWinnerResult = {};
 		const thishanded = oPage.usrsettings.rhanded ? 'righthandedP' : 'lefthandedP';
 		const saboutMessage = `<b>About</b>
-		<div class='showHideClass showMoreClass'><b>Monkys Compendium</b> is an app started by myself, Stephen Monk, a freelance developer with 25 years experience in delivering bespoke data driven business systems for desktop, Android and iPhone.<br><br>
+		<div class='showHideClass showMoreClass'><b>Monkys Compendium</b> is an app started by myself, Stephen Monk, a freelance developer with 20 years experience in delivering bespoke data driven business systems for desktop, Android and iPhone.<br><br>
 		<b>Monkys Compendium</b> is intended as a simple, multi-use, easy to use bespoke system built to requirement around a simple brief. I plan to expand it as time goes by.<br><br>
-		I can build anything you can imagine. I love working with graphic designers (this design is just me donkeying about!). You will be amazed at what organised, secure, shareable data can do for your company both with regards to efficiency and value.<br><br>
+		I can build anything you can imagine. You will be amazed at what organised, secure, shareable data can do for your company both with regards to efficiency and value.<br><br>
 		If you have any needs with regard to data systems, apps, websites, business systems then please get in touch, I can work remote and love to travel <a href='https://www.harryramma.co.uk' class='exLink'>www.harryramma.co.uk</a><div class='showHideClass showMoreBut blockhandedP ${thishanded}'>more</div></div>`;
 
 		const suserguide = `<div><b>User Guide</b><br><b>GENERAL:</b></div>
