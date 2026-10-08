@@ -21,6 +21,7 @@ window.addEventListener("orientationchange", function(event) {
 document.addEventListener('DOMContentLoaded', function(event) {
 //console.log(ons,oGaffer,'<<in DOMContentLoaded::',oGaffer.local);
   if (oPage&&oPage.islocal){
+    showModal(5);
     innit();
   };
 
@@ -559,6 +560,12 @@ document.addEventListener('click',function(event){
       };
 
 
+
+
+      setTimeout(function () {
+
+
+
       if (s[0]==='mhome'){
       document.querySelector('#myNavigator').bringPageTop('home.html')
       .then(()=>{
@@ -698,9 +705,32 @@ document.addEventListener('click',function(event){
           })
       };
       return;
+
+
+
+    }, 400);
+
+
     };
+
+
+
+
+
+
+
+
+
+
+
+
     if (event.target.className.includes('goHome')){
       showModal();
+
+      setTimeout(function () {
+
+
+
       document.querySelector('#myNavigator').bringPageTop('home.html')
       .then(()=>{
         oPage.pageTitle='Monkys Compendium';
@@ -721,6 +751,10 @@ document.addEventListener('click',function(event){
         if (window.m){try{window.m.stop();}catch{//console.log('cannot stop m!!');
         };};
       });
+
+    },300);
+
+
     };
 
 
@@ -854,6 +888,7 @@ document.addEventListener('click',function(event){
     var thisTarget = event.target.getClientRects();
     oPage.pop.direction = 'down';
     el.setAttribute('direction',oPage.pop.direction);
+    popover.setAttribute('mask-color','rgba(0,0,0,0.3)');
   //  setPopoverToPa({top:thisTarget[0].top *1 + 25,bottom:oPage.screen.height - thisTarget[0].bottom,left:thisTarget[0].left});
 
     if(oPage.lastRowClicked!==-1&&oPage.blockSelected!==oPage.blockAmounts[oPage.blockAmounts.length-1]){
@@ -1301,15 +1336,16 @@ document.addEventListener('hold',(event)=>{
           var thisTarget = ell.getClientRects();
         //  console.log(oPage.highlightListRow,posOffset.top>oPage.screen.height/2,'<<in mainListsRow::',thisTarget,thisTarget[0]);
             document.querySelector('.popoverDiv').innerHTML=returnPopoverMain({row:iRow});
-          //  textAreaStretch();
-            //gives the current values of popover to central object (workaround for error in popover where it 'sometimes' opens in wrong place)
-            //this is a fix - it sets the position of the popover direct to the coordinates of the clicked element
-          //  console.log('top:',el.childNodes[3].style.top,'  bottom:',el.childNodes[3].style.bottom,'<<in listOfListsRow::');
+
+            //we want to make the popover more opaqu
+            //.popover-mask
             popover.setAttribute('direction',oPage.pop.direction);
+            popover.setAttribute('mask-color','rgba(0,0,0,0.2)');
+
             popover.show(evTarget,{left:50,right:50})
             .then((data)=>{
               oPage.popRect = popover.childNodes[3].getClientRects()[0];
-            //  console.log(popover.getAttribute('direction'),oPage.pop.direction,data,oPage.screen.height,'<<showed::',popover.childNodes[3].getClientRects()[0]);
+              console.log(popover,'<<showed::',popover.firstElementChild);
             })
             return;
     };
@@ -1338,11 +1374,21 @@ document.addEventListener('hold',(event)=>{
   //};
 },true);
 
+  const swipemodal = (()=>{
+    var modal = document.querySelector('ons-modal');
+    setTimeout(function () {
+          modal.show();
+    }, 10);
+  });
+
     document.addEventListener('swipeleft', function(event) {
     //aPages:['home','square','shopping','jokes','info'],
         //console.log('Swipe left is detected::',event);
         //blurlastinput();
         showModal(5);
+      //  swipemodal();
+      setTimeout(function () {
+
         const iPageCount = oPage.aPages.length;
         const a = oPage.aPages;
         var iRow = 0;//Array.prototype.indexOf.call(oPage.aPages, oPage.page);
@@ -1423,97 +1469,104 @@ document.addEventListener('hold',(event)=>{
             };
             return;
         });
+
+      }, 400);//end swipe left stuff
+
+
     },true);
 
 
 
     document.addEventListener('swiperight', function(event) {
+            //  console.log('Swipe right is detected::',event);
       showModal(5);
-    //  blurlastinput();
-      //document.activeElement.blur();
-      const iPageCount = oPage.aPages.length;
-      const a = oPage.aPages;
-      var iRow = 0;//Array.prototype.indexOf.call(oPage.aPages, oPage.page);
-      for(var i=0;i<a.length;i++){
-        if (a[i].page===oPage.page){
-          iRow=i;
-          break;
-        };
-      };
 
-
-      iRow = iRow-1;
-      if (iRow<0){
-        iRow=oPage.aPages.length-1;
-      };
-
-
-      //if (window.m){window.m.stop();};
-      if (window.m){try{window.m.stop();}catch{//console.log('cannot stop m!!');
-      };};
-    //  console.log(oPage.page,'<<Swipe right is detected::',iPageCount,iRow);
-      document.querySelector('#myNavigator').bringPageTop(oPage.aPages[iRow].usesPage,{animation:'lift'})
-      .then(()=>{
-        oPage.pageTitle=oPage.aPages[iRow].title;
-        oPage.page=oPage.aPages[iRow].page;
-        oPage.usrsettings.rhanded ? setcardhand({rhand:true}) : setcardhand({rhand:false});
-        addpagetitle({title:oPage.pageTitle});
-      //  console.log('swiope right result page::',oPage.page,oPage.pageTitle);
-        //resetCards({top:oPage.topAdjuster,islandscape:ons.orientation.isLandscape()});
-        afterLoadStuff({page:oPage.page});
-        showhidetoolbars();
-        if (oPage.page==='home'){
-            getPullerReady({page:oPage.page});
-            setHomePage();
-          //  closeModal();
-        }
-        if (oPage.page==='jokes'){
-          getPullerReady({page:oPage.page});
-          const d = getLocal('lastJoke');
-          //console.log('swipe right ,last joke::',d);
-          if (d){drawJoke({joke:d,highlight:''});}else{fetchJoke();};
-        }
-        if (oPage.page==='info'){
-            checknopull();
-            aboutSquares();
-        };
-
-        if (oPage.page==='morse'){
-            getPullerReady({page:oPage.page});
-            morse();
-        };
-          if (oPage.page==='lists'){
-            setTimeout(function () {
-              getPopoverReady({page:oPage.page});
-              getPullerReady({page:oPage.page});
-              doDBStuff();
-              drawMainList({search:''});
-              document.querySelector('.mainList').style.maxHeight=oPage.screen.height-300+'px';
-            },100);
+      setTimeout(function () {
+          const iPageCount = oPage.aPages.length;
+          const a = oPage.aPages;
+          var iRow = 0;//Array.prototype.indexOf.call(oPage.aPages, oPage.page);
+          for(var i=0;i<a.length;i++){
+            if (a[i].page===oPage.page){
+              iRow=i;
+              break;
+            };
           };
-          if (oPage.page==='square'){
-              if(getLocal('soSQ')){
-                oSQ=getLocal('soSQ');
+
+
+          iRow = iRow-1;
+          if (iRow<0){
+            iRow=oPage.aPages.length-1;
+          };
+
+
+          //if (window.m){window.m.stop();};
+          if (window.m){try{window.m.stop();}catch{//console.log('cannot stop m!!');
+          };};
+        //  console.log(oPage.page,'<<Swipe right is detected::',iPageCount,iRow);
+          document.querySelector('#myNavigator').bringPageTop(oPage.aPages[iRow].usesPage,{animation:'lift'})
+          .then(()=>{
+            oPage.pageTitle=oPage.aPages[iRow].title;
+            oPage.page=oPage.aPages[iRow].page;
+            oPage.usrsettings.rhanded ? setcardhand({rhand:true}) : setcardhand({rhand:false});
+            addpagetitle({title:oPage.pageTitle});
+          //  console.log('swiope right result page::',oPage.page,oPage.pageTitle);
+            //resetCards({top:oPage.topAdjuster,islandscape:ons.orientation.isLandscape()});
+            afterLoadStuff({page:oPage.page});
+            showhidetoolbars();
+            if (oPage.page==='home'){
+                getPullerReady({page:oPage.page});
+                setHomePage();
+              //  closeModal();
+            }
+            if (oPage.page==='jokes'){
+              getPullerReady({page:oPage.page});
+              const d = getLocal('lastJoke');
+              //console.log('swipe right ,last joke::',d);
+              if (d){drawJoke({joke:d,highlight:''});}else{fetchJoke();};
+            }
+            if (oPage.page==='info'){
+                checknopull();
+                aboutSquares();
+            };
+
+            if (oPage.page==='morse'){
+                getPullerReady({page:oPage.page});
+                morse();
+            };
+              if (oPage.page==='lists'){
+                setTimeout(function () {
+                  getPopoverReady({page:oPage.page});
+                  getPullerReady({page:oPage.page});
+                  doDBStuff();
+                  drawMainList({search:''});
+                  document.querySelector('.mainList').style.maxHeight=oPage.screen.height-300+'px';
+                },100);
               };
-              getPullerReady({page:oPage.page});
-              drawSquares();
-              $('#divSquares').slideDown('slow',function(){
-                $(this).removeAttr('style');
-                $(this).removeClass('elHide');
-                $(this).addClass('elShow');
-              });
-              loadOnClick();
-              if(!oSQ.bfirstMove){document.querySelector('.replayBack').disabled=false;};
-              colourPlayerConts(oSQ.iSquarePlayer);
-              drawBoard(9);
-          };
-          if (oPage.page==='quotes'){
-            getPopoverReady({page:oPage.page});
-            getPullerReady({page:oPage.page});
-            quotes();
-          };
-          return;
-      });
+              if (oPage.page==='square'){
+                  if(getLocal('soSQ')){
+                    oSQ=getLocal('soSQ');
+                  };
+                  getPullerReady({page:oPage.page});
+                  drawSquares();
+                  $('#divSquares').slideDown('slow',function(){
+                    $(this).removeAttr('style');
+                    $(this).removeClass('elHide');
+                    $(this).addClass('elShow');
+                  });
+                  loadOnClick();
+                  if(!oSQ.bfirstMove){document.querySelector('.replayBack').disabled=false;};
+                  colourPlayerConts(oSQ.iSquarePlayer);
+                  drawBoard(9);
+              };
+              if (oPage.page==='quotes'){
+                getPopoverReady({page:oPage.page});
+                getPullerReady({page:oPage.page});
+                quotes();
+              };
+              return;
+          });
+      }, 400);
+
     });
 
     document.addEventListener('input', function (event) {

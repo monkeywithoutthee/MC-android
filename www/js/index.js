@@ -1,5 +1,5 @@
 'use strict';
-const isLocal = false;
+const isLocal = true;
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -56,7 +56,7 @@ const app = {
       //}, 1000);
 
 
-
+      showModal(5);
       innit();
       console.log(this,'<<deviceready::',device);
       document.addEventListener("resume", onResume, false);
@@ -272,8 +272,9 @@ function innit() {
 
       console.log(oPage.usrsettings,'<<in init innit!',!ons.orientation.isLandscape());
       addpagetitle({title:oPage.pageTitle});
-      showModal(5);
+            //  showModal(5);
       setTimeout(()=> {
+
         /*  if (!oPage.islocal){
               navigator.splashscreen.hide();
           };*/
@@ -284,7 +285,8 @@ function innit() {
       //  if (oPage.islocal){console.log('LOCAL app running')}else{console.log('<<APP app running::',device)};
          //setLocal('soSQ',null);//clear issues for testing ONLY VERY CAREFULL - NEVER EVER PUT LIVE!!
           afterLoadStuff({page:'home'});
-    }, 100);
+          closeModal();
+    }, 500);
 };
 
 
@@ -304,6 +306,7 @@ const isSilicon = (()=>{
 });
 
 function afterLoadStuff(data){
+  //return false;
   //use to merge and de-duplicate simple array - not part of app
 /*var x=[];
   var alreadyIn=((data)=>{
@@ -468,7 +471,7 @@ setTimeout(function () {
     setTimeout(function () {
       closeModal();
     }, 1000);
-  }, 100);
+  }, 200);
 };
 
 
@@ -491,7 +494,7 @@ const getPullerReady = function(data){
           };
           if (!oPage.islocal&&device.platform.toLowerCase()==='android'){
               //pullHook.setAttribute('top','-50px');
-            //  checkandroidbottom(); //removing
+              checkandroidbottom();
               pullHook.classList.add('pullandroid');
           };
           if (!ons.orientation.isPortrait()){
@@ -591,7 +594,7 @@ const checkandroidbottom = (()=>{
   if (!oPage.islocal&&device.platform.toLowerCase()==='android'){
     const el = document.querySelectorAll('.fabToolbar');
     if (el){
-        el.classList.add('fabandroidbottom');
+      //  el.classList.add('fabandroidbottom');//here here here
     };
   };
 });
