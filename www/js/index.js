@@ -1,5 +1,5 @@
 'use strict';
-const isLocal = true;
+const isLocal = false;//note - local (treue) refers to the standard web browser environment. False is on the phone or device.
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
