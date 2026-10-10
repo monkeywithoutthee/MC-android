@@ -505,6 +505,8 @@ const setUpPlayer = (()=>{
         m.el.style.margin = '10px';
         m.el.style.borderStyle = 'solid';
         m.el.style.borderWidth = '0.5px';
+        m.el.style.fontSize = 'large';
+
       //  m.el.childNodes[3].style.display = 'none';
         m.el.childNodes[3].classList.add('elHide')
         m.el.childNodes[4].childNodes[0].style.left='-150px';

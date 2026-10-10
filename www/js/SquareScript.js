@@ -899,6 +899,7 @@
     }
     var modal = document.querySelector('ons-modal');
     modal.show();
+    return false;
     document.getElementById('modalMessage').innerHTML = modalMessage;
       //  getModalContent(imageName);
     };
