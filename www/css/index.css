@@ -5,6 +5,7 @@ html{
   background-color: black;
   height: 100vh;
 }
+
 body {
     -webkit-touch-callout: none;
     -webkit-text-size-adjust: none;
@@ -29,7 +30,7 @@ body {
     text-transform:unset;
     width:100%;
     height:100%;
-    background-color:#32383d;
+  /*  background-color:#32383d;*/
     font-family: 'RobotoRegular', 'Droid Sans', 'Segoe UI', Segoe, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
     font-size:12px;
 }
@@ -112,6 +113,21 @@ h1 {
     to { opacity: 1.0; }
 }
 
+
+
+
+
+
+
+
+
+
+.preloadBodyClass{
+  opacity:0%;
+}
+.postloadBodyClass{
+  opacity:1;
+}
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
@@ -1256,7 +1272,7 @@ onsen UI overlaysonsen UI overlaysonsen UI overlaysonsen UI overlays .--. . .- -
   height:120%;
 }
 .modal{
-  background-color:rgba(33,33,33,0.9);
+  background-color:rgba(33,33,33,0.96);
 }
 .button{
   background-color: rgba(250,250,250,0.3);
